@@ -1,0 +1,1 @@
+Se citesc de la tastatura tipuri si se apeleaza metoda toString

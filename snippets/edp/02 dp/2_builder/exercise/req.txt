@@ -1,0 +1,1 @@
+Sa se implementeze un builder care construieste masini. Pentru fiecare masina, o serie de informatii sunt obligatorii (e.g. motorul), iar o serie de informatii definesc componente optionale.

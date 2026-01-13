@@ -1,0 +1,1 @@
+Use a mediator to implement coordination between tasks.

@@ -1,0 +1,1 @@
+Implement a switch for a robot as a command. the robot will power on and go forward or shut down.

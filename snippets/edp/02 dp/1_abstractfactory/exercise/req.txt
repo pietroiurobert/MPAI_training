@@ -1,0 +1,1 @@
+Sa se constriasca un factory abstract care produce o serie de obiecte pe baza unor tipuri citite dintr-un fisier text. Pentru fiecare obiect creat se apeleaza aceeasi metoda.
