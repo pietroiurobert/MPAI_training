@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3> Lista comenzi </h3>
+    <table>
+        <tr th:each="comanda : ${comenzi}">
+            <td th:text="${comanda.getId()}"></td>
+            <td th:text="${comanda.getSuma()}"></td>
+            <td th:text="${comanda.getStare()}"></td>
+            <td>
+                <form th:action="@{/comenzi/delete/{id}(id=${comanda.getId()})}" method="post">
+                    <button type="submit"> Sterge </button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/comenzi/editForm/{id}(id=${comanda.id})}" method="get">
+                    <button type="submit"> Editeaza </button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/comenzi/nextStare}" method="post">
+                    <input type="hidden" name="id" th:value="${comanda.getId()}">
+                    <button th:if="${comanda.getStare()!=T(com.example.demo.model.Stare).LIVRATA}" type="submit"> Trimite la urmtoarea stare </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <h3>  Adauga o comanda noua </h3>
+
+    <form th:action="@{/comenzi/save}" th:object="${comanda}" method="post">
+        <input type="number" th:field="*{suma}" placeholder="suma"/>
+        <select th:field="*{stare}">
+            <option th:each="s : ${stari}" th:value="${s}" th:text="${s}"></option>
+        </select>
+        <button type="submit"> Salveaza </button>
+    </form>
+</body>
+</html>

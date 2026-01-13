@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/comenzi/edit}" th:object="${comanda}" method="post">
+        <!-- DTO doesn't contain id; include it as a separate parameter -->
+        <input type="hidden" name="id" th:value="${comandaId}" />
+
+        <label th:text='Suma'></label>
+        <input type="number" th:field="*{suma}">
+        <label>Stare</label>
+        <select th:field="*{stare}">
+            <option th:each="s : ${stari}"
+                    th:value="${s}"
+                    th:text="${s}">
+            </option>
+        </select>
+
+        <button type="submit"> Salveaza </button>
+    </form>
+</body>
+</html>
